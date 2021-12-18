@@ -20,16 +20,11 @@ const App: Component = () => {
     <div class={styles.App}>
       <header class={styles.header}>
         <img src={logo} class={styles.logo} alt="logo" />
-        <p>{sig}</p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <h2>{sig}</h2>
+        <p>
           The content above is loaded from a tRPC endpoint hosted via a Vercel
           serverless function
-        </a>
+        </p>
       </header>
     </div>
   );
