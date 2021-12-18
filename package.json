@@ -15,6 +15,7 @@
     "vite-plugin-solid": "^2.1.4"
   },
   "dependencies": {
+    "@vercel/node": "^1.12.1",
     "solid-js": "^1.2.6"
   }
 }
