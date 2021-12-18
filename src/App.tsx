@@ -1,16 +1,26 @@
-import type { Component } from "solid-js";
+import { Component, createSignal } from "solid-js";
 
 import logo from "./logo.svg";
 import styles from "./App.module.css";
+import { createTRPCClient } from "@trpc/client";
+import type { AppRouter } from "../api/trpc/[trpc]";
+
+const data = async () => {
+  const client = createTRPCClient<AppRouter>({ url: "/api/trpc" });
+
+  return await client.query("hello");
+};
 
 const App: Component = () => {
+  const [sig, updateSig] = createSignal("Loading...");
+
+  data().then((res) => updateSig(res.greeting));
+
   return (
     <div class={styles.App}>
       <header class={styles.header}>
         <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <p>{sig}</p>
         <a
           class={styles.link}
           href="https://github.com/solidjs/solid"
