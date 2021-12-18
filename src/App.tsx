@@ -27,7 +27,8 @@ const App: Component = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn Solid
+          The content above is loaded from a tRPC endpoint hosted via a Vercel
+          serverless function
         </a>
       </header>
     </div>
