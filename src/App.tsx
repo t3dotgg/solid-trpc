@@ -4,7 +4,7 @@ import type { Component } from "solid-js";
 import { createTrpcQuery } from "./lib/trpc";
 
 const ComponentWithData: Component = () => {
-  const [data] = createTrpcQuery("hello");
+  const [data] = createTrpcQuery("hello", { text: "world" });
 
   return <h2>{data()?.greeting ?? "Loading..."}</h2>;
 };
