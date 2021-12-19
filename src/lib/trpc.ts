@@ -13,9 +13,9 @@ type AppQueries = AppRouter["_def"]["queries"];
 
 type AppQueryKeys = keyof AppQueries & string;
 
-export const createTrpcQuery = (
-  path: AppQueryKeys,
-  ...args: inferHandlerInput<AppQueries[AppQueryKeys]>
+export const createTrpcQuery = <TPath extends AppQueryKeys>(
+  path: TPath,
+  ...args: inferHandlerInput<AppQueries[TPath]>
 ) => {
   const fetchData = async () => {
     return client.query(path, ...args);
