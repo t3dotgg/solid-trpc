@@ -9,7 +9,7 @@
 }
 
 .header {
-  background-color: #282c34;
+  background-color: #374151;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@
 }
 
 .link {
-  color: #b318f0;
+  color: #67e8f9;
 }
 
 @keyframes logo-spin {
