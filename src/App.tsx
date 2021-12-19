@@ -1,15 +1,19 @@
-import { Component } from "solid-js";
-
 import styles from "./App.module.css";
+
+import type { Component } from "solid-js";
 import { createTrpcQuery } from "./lib/trpc";
 
-const App: Component = () => {
+const ComponentWithData: Component = () => {
   const [data] = createTrpcQuery("hello");
 
+  return <h2>{data()?.greeting ?? "Loading..."}</h2>;
+};
+
+const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
-        <h2>{data()?.greeting ?? "Loading..."}</h2>
+        <ComponentWithData />
         <p>
           The content above is loaded from a tRPC endpoint hosted via a Vercel
           serverless function
